@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{v3/base}">
+<body>
+<!--J'ecrase / je remplace le fragment "content" par mon code html-->
+<div layout:fragment="content">
+    <h1>La liste des aliments</h1>
+
+    <h3>Version LI</h3>
+    <ul>
+        <li th:each="aliment : ${aliments}" th:text="${aliment.name}"></li>
+    </ul>
+
+    <h3>Version Div</h3>
+
+    <div th:each="aliment : ${aliments}">
+        <p th:text="${aliment.name}"></p>
+    </div>
+</div>
+
+</body>
+</html>
+

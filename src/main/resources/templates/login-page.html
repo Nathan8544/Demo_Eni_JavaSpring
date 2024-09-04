@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" th:href="@{/images/login-icon.png}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="/vendor/uikit/css/uikit.min.css" />
+
+    <!-- UIkit JS -->
+    <script src="/vendor/uikit/js/uikit.min.js"></script>
+    <script src="/vendor/uikit/js/uikit-icons.min.js"></script>
+
+    <!-- My Theme -->
+    <link rel="stylesheet" th:href="@{/css/eni-theme.css}" />
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body class="eni-page-background">
+
+<!-- Le bloc qui contient les elements du formulaire -->
+<div class="eni-common-page-padding">
+
+    <!-- Icon -->
+    <div><img th:src="@{/images/login-icon.png}" class="uk-align-center eni-icon-header-page"></div>
+    <div th:if="${param.logout}">Déconnexion réalisée avec succès</div>
+    <form th:action="@{/login}" method="POST">
+        <!-- Champ email -->
+        <div class="uk-margin">
+            <input name="username" class="uk-input" type="text" placeholder="Email" />
+        </div>
+
+        <!-- Champ password -->
+        <div class="uk-margin">
+            <input name="password" class="uk-input" type="password" placeholder="Mot de passe " />
+        </div>
+
+        <!-- Lien oublié -->
+        <div>
+            <a href="#" class="uk-link-muted uk-width-1-1 eni-link-click">Mot de passe oublié ?</a>
+        </div>
+
+        <!-- Bouton -->
+        <div class="uk-margin">
+            <input class="uk-button uk-button-primary uk-width-1-1" type="submit" value="Connexion">
+        </div>
+
+        <!-- Lien inscrire -->
+        <div>
+            <a href="#" class="uk-link-muted uk-width-1-1 eni-link-click">S'inscrire ?</a>
+        </div>
+    </form>
+
+</div>
+
+</body>
+</html>

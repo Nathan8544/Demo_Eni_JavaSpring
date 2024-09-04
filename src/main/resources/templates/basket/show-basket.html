@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="icon" th:href="@{/images/login-icon.png}">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Votre panier</h1>
+
+<ul>
+    <li th:each="product : ${basket}" th:text="${product}"></li>
+</ul>
+</body>
+</html>

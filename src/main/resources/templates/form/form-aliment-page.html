@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <link rel="icon" th:href="@{/images/login-icon.png}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="/vendor/uikit/css/uikit.min.css" />
+
+    <!-- UIkit JS -->
+    <script src="/vendor/uikit/js/uikit.min.js"></script>
+    <script src="/vendor/uikit/js/uikit-icons.min.js"></script>
+
+    <meta charset="UTF-8">
+    <title>Demo Form</title>
+</head>
+<body>
+
+<div class="uk-container">
+
+    <h1>Formulaire Aliment</h1>
+
+    <form th:object="${aliment}" method="post" th:action="@{/show-aliment-form}">
+
+        <!-- <input th:field="*{id}" type="hidden" /> -->
+
+        <div class="uk-margin">
+            <input th:field="*{name}" class="uk-input" placeholder="Veuillez saisir le nom"/>
+            <ul th:if="${#fields.hasErrors('name')}">
+                <li class="uk-form-danger" th:each="error: ${#fields.errors('name')}" th:text="${error}"></li>
+            </ul>
+        </div>
+
+        <div class="uk-margin">
+            <input value="Submit" type="submit" class="uk-button uk-button-primary uk-width-1-1"/>
+        </div>
+
+    </form>
+
+</div>
+
+</body>
+</html>

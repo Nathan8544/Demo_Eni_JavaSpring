@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" th:href="@{/images/login-icon.png}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Title</title>
+</head>
+<body>
+
+<header>
+  <div sec:authorize="isAuthenticated()">
+    Logged user: <span sec:authentication="name"></span>
+    Roles: <span sec:authentication="principal.authorities"></span>
+  </div>
+  <nav>
+    <ul>
+      <li sec:authorize="!isAuthenticated()"><a href="/login">Connexion</a></li>
+      <li sec:authorize="isAuthenticated()"><a href="/logout">Déconnexion</a></li>
+      <li sec:authorize="hasRole('ROLE_FORMATEUR')"><a href="/show-aliments">Liste aliment</a></li>
+      <li sec:authorize="hasRole('ROLE_ADMIN')"><a href="/make-basket">faire son panier</a></li>
+    </ul>
+  </nav>
+</header>
+
+<h1>Bienvenue  sur l'app alimentaire</h1>
+
+</body>
+</html>

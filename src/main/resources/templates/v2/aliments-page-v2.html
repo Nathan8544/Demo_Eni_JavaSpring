@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!-- Importer le header -->
+<div th:include="/v2/header"></div>
+
+<body>
+
+<h1>La liste des aliments</h1>
+
+<h3>Version LI</h3>
+<ul>
+  <li th:each="aliment : ${aliments}" th:text="${aliment.name}"></li>
+</ul>
+
+<h3>Version Div</h3>
+
+<div th:each="aliment : ${aliments}">
+  <p th:text="${aliment.name}"></p>
+</div>
+
+
+</body>
+</html>
